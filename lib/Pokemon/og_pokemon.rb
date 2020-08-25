@@ -1,5 +1,5 @@
 require_relative "../Issues/grabable"
-
+require "pry"
 class Og_pokemon
     include Grabable::InstanceMethods
     extend Grabable::DeepMethods
@@ -8,7 +8,8 @@ class Og_pokemon
     @@Og_pokemon = []
 
     def initialize(attributes)
-        attributes.each {|key, value| self.send(("#{key}="), value)}
+        
+        attributes.each { |key, value| self.send("#{key}=", value) }
         save
     end
 

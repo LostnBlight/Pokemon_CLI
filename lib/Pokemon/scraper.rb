@@ -1,4 +1,4 @@
-
+require "pry"
 class Scraper
     URL = "https://pokemondb.net/pokedex/all"
 
@@ -12,9 +12,9 @@ class Scraper
             pokemon_type = pokemon_row_data.css("td")[2].text
             pokemon_stats = pokemon_row_data.css("td")[3].text
 
-            if (pokemon_name != "Chikorita")
+            #if (pokemon_name != "Chikorita")
                 Og_pokemon.new({pokemon_number: pokemon_number, name: pokemon_name, type: pokemon_type, stats: pokemon_stats})
-            end
+            #end
         end
     end  
 end

@@ -1,4 +1,5 @@
 require_relative "./goodlooks"
+require "pry"
 module Grabable
 
     module InstanceMethods
@@ -40,7 +41,13 @@ module Grabable
     end
 
         def random_pokemon
-            puts (rand*151).to_i
+            random = (rand*151).to_i
+            formatted_random = "%03d" % random
+                result = self.all.find{|pokemon| pokemon.pokemon_number.to_s == formatted_random}
+            if result
+                puts random
+                puts "#{result.name}#{result.pokemon_number}#{result.type}#{result.stats}"
+            end
         end
 
         def find_by_name(pokemon_name)
@@ -70,6 +77,5 @@ module Grabable
 
 
     end
-
 
 end
